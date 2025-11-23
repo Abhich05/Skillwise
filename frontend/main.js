@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'https://skillwisedemo.com/api';
+const API_BASE_URL = 'https://skillwise-production-af6a.up.railway.app/api';
 
 // Global state
 let products = [];
