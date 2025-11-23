@@ -1,6 +1,21 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
+
+// DEBUG: List files to diagnose deployment issues
+try {
+    console.log('Current directory:', __dirname);
+    console.log('Files in root:', fs.readdirSync(__dirname));
+    if (fs.existsSync(path.join(__dirname, 'database'))) {
+        console.log('Files in database:', fs.readdirSync(path.join(__dirname, 'database')));
+    } else {
+        console.log('Database directory NOT FOUND at:', path.join(__dirname, 'database'));
+    }
+} catch (e) {
+    console.error('Error listing files:', e);
+}
+
 const Database = require('./database/connection');
 
 // Import routes
@@ -68,7 +83,7 @@ app.get('/api/health', (req, res) => {
 
 // Serve frontend index.html for root route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
 // Error handling middleware
