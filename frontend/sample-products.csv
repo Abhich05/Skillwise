@@ -1,0 +1,120 @@
+name,unit,category,brand,stock,status,image
+Wireless Mouse,pieces,Electronics,Logitech,25,active,https://example.com/mouse.jpg
+Mechanical Keyboard,pieces,Electronics,Corsair,15,active,https://example.com/keyboard.jpg
+USB-C Cable,pieces,Electronics,Anker,50,active,https://example.com/cable.jpg
+Webcam HD,pieces,Electronics,Logitech,8,active,https://example.com/webcam.jpg
+Desk Lamp,pieces,Office Supplies,Philips,12,active,https://example.com/lamp.jpg
+Office Chair,pieces,Furniture,Herman Miller,3,active,https://example.com/chair.jpg
+Monitor Stand,pieces,Office Supplies,3M,18,active,https://example.com/stand.jpg
+Wireless Earbuds,pieces,Electronics,Sony,30,active,https://example.com/earbuds.jpg
+Phone Case,pieces,Electronics,Spigen,45,active,https://example.com/case.jpg
+Laptop Stand,pieces,Electronics,Rain Design,22,active,https://example.com/laptop-stand.jpg
+Coffee Mug,pieces,Office Supplies,Contigo,35,active,https://example.com/mug.jpg
+Notebook,pieces,Office Supplies,Moleskine,60,active,https://example.com/notebook.jpg
+Pen Set,pieces,Office Supplies,Pilot,100,active,https://example.com/pens.jpg
+Desk Organizer,pieces,Office Supplies,Bamboo,28,active,https://example.com/organizer.jpg
+Monitor 27",pieces,Electronics,Dell,7,active,https://example.com/monitor.jpg
+Desk Mat,pieces,Office Supplies,Corsair,40,active,https://example.com/mat.jpg
+Cable Management,pieces,Office Supplies,Velcro,75,active,https://example.com/cable-mgmt.jpg
+Wireless Charger,pieces,Electronics,Anker,20,active,https://example.com/charger.jpg
+Blue Light Glasses,pieces,Health,Gamma Ray,16,active,https://example.com/glasses.jpg
+Foot Rest,pieces,Office Supplies,ErgoFoam,14,active,https://example.com/footrest.jpg
+Wireless Mouse,pieces,Electronics,Logitech,25,active,https://example.com/mouse.jpg
+Mechanical Keyboard,pieces,Electronics,Corsair,15,active,https://example.com/keyboard.jpg
+USB-C Cable 1m,pieces,Electronics,Anker,50,active,https://example.com/cable.jpg
+Webcam HD,pieces,Electronics,Logitech,8,active,https://example.com/webcam.jpg
+Desk Lamp,pieces,Office Supplies,Philips,12,active,https://example.com/lamp.jpg
+Office Chair,pieces,Furniture,Herman Miller,3,active,https://example.com/chair.jpg
+Monitor Stand,pieces,Office Supplies,3M,18,active,https://example.com/stand.jpg
+Wireless Earbuds,pieces,Electronics,Sony,30,active,https://example.com/earbuds.jpg
+Phone Case,pieces,Electronics,Spigen,45,active,https://example.com/case.jpg
+Laptop Stand,pieces,Electronics,Rain Design,22,active,https://example.com/laptop-stand.jpg
+Coffee Mug,pieces,Office Supplies,Contigo,35,active,https://example.com/mug.jpg
+Notebook A5,pieces,Office Supplies,Moleskine,60,active,https://example.com/notebook.jpg
+Pen Set,pieces,Office Supplies,Pilot,100,active,https://example.com/pens.jpg
+Desk Organizer,pieces,Office Supplies,Bamboo,28,active,https://example.com/organizer.jpg
+Monitor 27",pieces,Electronics,Dell,7,active,https://example.com/monitor.jpg
+Desk Mat,pieces,Office Supplies,Corsair,40,active,https://example.com/mat.jpg
+Cable Management Kit,pieces,Office Supplies,Velcro,75,active,https://example.com/cable-mgmt.jpg
+Wireless Charger,pieces,Electronics,Anker,20,active,https://example.com/charger.jpg
+Blue Light Glasses,pieces,Health,Gamma Ray,16,active,https://example.com/glasses.jpg
+Foot Rest,pieces,Office Supplies,ErgoFoam,14,active,https://example.com/footrest.jpg
+External SSD 1TB,pieces,Electronics,Samsung,42,active,https://example.com/ssd1tb.jpg
+HDMI Cable 2m,pieces,Electronics,Ugreen,85,active,https://example.com/hdmi.jpg
+Bluetooth Speaker,pieces,Electronics,JBL,19,active,https://example.com/speaker.jpg
+Gaming Headset,pieces,Electronics,Razer,11,active,https://example.com/headset.jpg
+Ergonomic Mouse,pieces,Electronics,Logitech,24,active,https://example.com/ergo-mouse.jpg
+Standing Desk,pieces,Furniture,Uplift,5,active,https://example.com/desk.jpg
+Filing Cabinet,pieces,Furniture,IKEA,9,active,https://example.com/cabinet.jpg
+Sticky Notes,pieces,Office Supplies,Post-it,150,active,https://example.com/sticky.jpg
+Stapler,pieces,Office Supplies,Swingline,30,active,https://example.com/stapler.jpg
+Paper Clips,pieces,Office Supplies,Acco,200,active,https://example.com/clips.jpg
+Whiteboard 2x3,pieces,Office Supplies,Quartet,10,active,https://example.com/whiteboard.jpg
+Dry Erase Markers,pieces,Office Supplies,Expo,55,active,https://example.com/markers.jpg
+Power Strip,pieces,Electronics,Belkin,33,active,https://example.com/powerstrip.jpg
+USB Hub,pieces,Electronics,Anker,27,active,https://example.com/hub.jpg
+Ethernet Cable 5m,pieces,Electronics,CableMatters,60,active,https://example.com/ethernet.jpg
+Screen Cleaning Kit,pieces,Electronics,Whoosh,40,active,https://example.com/cleaner.jpg
+Microphone Arm,pieces,Electronics,Blue,13,active,https://example.com/mic-arm.jpg
+Condenser Mic,pieces,Electronics,Audio-Technica,8,active,https://example.com/mic.jpg
+Noise Cancelling Headphones,pieces,Electronics,Bose,14,active,https://example.com/headphones.jpg
+Smart Watch,pieces,Electronics,Apple,20,active,https://example.com/watch.jpg
+Tablet Stand,pieces,Electronics,Lamicall,38,active,https://example.com/tablet-stand.jpg
+Stylus Pen,pieces,Electronics,Apple,25,active,https://example.com/stylus.jpg
+Printer Paper,pieces,Office Supplies,HP,80,active,https://example.com/paper.jpg
+Ink Cartridge,pieces,Office Supplies,Canon,45,active,https://example.com/ink.jpg
+Laser Printer,pieces,Electronics,Brother,6,active,https://example.com/printer.jpg
+Shredder,pieces,Electronics,Fellowes,9,active,https://example.com/shredder.jpg
+Label Maker,pieces,Office Supplies,Dymo,18,active,https://example.com/label-maker.jpg
+Scissor Set,pieces,Office Supplies,Fiskars,50,active,https://example.com/scissors.jpg
+Tape Dispenser,pieces,Office Supplies,Scotch,42,active,https://example.com/tape.jpg
+Calculator,pieces,Office Supplies,Texas Instruments,35,active,https://example.com/calc.jpg
+Laptop Sleeve,pieces,Accessories,Incase,29,active,https://example.com/sleeve.jpg
+Backpack,pieces,Accessories,North Face,15,active,https://example.com/backpack.jpg
+Water Bottle,pieces,Accessories,Hydro Flask,40,active,https://example.com/bottle.jpg
+Desk Fan,pieces,Electronics,Honeywell,22,active,https://example.com/fan.jpg
+Heater,pieces,Electronics,Lasko,10,active,https://example.com/heater.jpg
+Air Purifier,pieces,Electronics,Levoit,7,active,https://example.com/purifier.jpg
+Gaming Chair,pieces,Furniture,Secretlab,4,active,https://example.com/gaming-chair.jpg
+Bookshelf,pieces,Furniture,IKEA,12,active,https://example.com/shelf.jpg
+Task Lamp,pieces,Furniture,Pixar,20,active,https://example.com/task-lamp.jpg
+Mouse Pad XL,pieces,Accessories,SteelSeries,65,active,https://example.com/pad-xl.jpg
+Wrist Rest,pieces,Accessories,HyperX,32,active,https://example.com/wrist.jpg
+Trackball Mouse,pieces,Electronics,Kensington,16,active,https://example.com/trackball.jpg
+Graphics Tablet,pieces,Electronics,Wacom,9,active,https://example.com/wacom.jpg
+VR Headset,pieces,Electronics,Oculus,11,active,https://example.com/vr.jpg
+Drone,pieces,Electronics,DJI,5,active,https://example.com/drone.jpg
+Action Camera,pieces,Electronics,GoPro,14,active,https://example.com/gopro.jpg
+Smart Speaker,pieces,Electronics,Amazon,55,active,https://example.com/echo.jpg
+Streaming Stick,pieces,Electronics,Roku,48,active,https://example.com/roku.jpg
+Router,pieces,Electronics,Netgear,17,active,https://example.com/router.jpg
+Mesh WiFi System,pieces,Electronics,Eero,8,active,https://example.com/mesh.jpg
+Network Switch,pieces,Electronics,TP-Link,21,active,https://example.com/switch.jpg
+NAS Drive,pieces,Electronics,Synology,4,active,https://example.com/nas.jpg
+SD Card 128GB,pieces,Electronics,SanDisk,100,active,https://example.com/sdcard.jpg
+MicroSD Card 64GB,pieces,Electronics,Samsung,120,active,https://example.com/microsd.jpg
+Card Reader,pieces,Electronics,Anker,45,active,https://example.com/reader.jpg
+Portable Battery 10k,pieces,Electronics,Mophie,33,active,https://example.com/powerbank.jpg
+Portable Battery 20k,pieces,Electronics,Anker,25,active,https://example.com/powerbank-l.jpg
+Travel Adapter,pieces,Electronics,Epicka,60,active,https://example.com/adapter.jpg
+Ring Light,pieces,Electronics,Neewer,19,active,https://example.com/ringlight.jpg
+Green Screen,pieces,Accessories,Elgato,12,active,https://example.com/green-screen.jpg
+Capture Card,pieces,Electronics,Elgato,15,active,https://example.com/capture.jpg
+Stream Deck,pieces,Electronics,Elgato,10,active,https://example.com/stream-deck.jpg
+Key Light,pieces,Electronics,Elgato,14,active,https://example.com/keylight.jpg
+Monitor Arm Dual,pieces,Office Supplies,Vivo,26,active,https://example.com/arm-dual.jpg
+Monitor Arm Single,pieces,Office Supplies,Vivo,30,active,https://example.com/arm-single.jpg
+CPU Holder,pieces,Office Supplies,HumanCentric,18,active,https://example.com/cpu-holder.jpg
+Cable Sleeve,pieces,Office Supplies,Alex Tech,80,active,https://example.com/sleeve-mgmt.jpg
+Zip Ties,pieces,Office Supplies,Generic,300,active,https://example.com/zips.jpg
+Headphone Stand,pieces,Accessories,New Bee,45,active,https://example.com/headphone-stand.jpg
+Keyboard Wrist Rest,pieces,Accessories,Glorious,28,active,https://example.com/kb-wrist.jpg
+Keycap Set,pieces,Accessories,Drop,15,active,https://example.com/keycaps.jpg
+Switch Puller,pieces,Accessories,Gateron,50,active,https://example.com/puller.jpg
+Lube Station,pieces,Accessories,Glorious,10,active,https://example.com/lube.jpg
+Desk Throw Blanket,pieces,Furniture,Generic,20,active,https://example.com/blanket.jpg
+Lumbar Pillow,pieces,Furniture,Everlasting,18,active,https://example.com/lumbar.jpg
+Floor Mat,pieces,Furniture,Gorilla Grip,12,active,https://example.com/floor-mat.jpg
+Drafting Chair,pieces,Furniture,Modway,6,active,https://example.com/drafting.jpg
+Corner Desk,pieces,Furniture,Tribesigns,4,active,https://example.com/corner.jpg
+Bookshelf Speakers,pieces,Electronics,Edifier,14,active,https://example.com/bookshelf-spk.jpg
