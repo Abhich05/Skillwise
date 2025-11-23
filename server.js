@@ -33,22 +33,7 @@ const allowedOrigins = process.env.FRONTEND_URL
     : ['http://localhost:3000', 'http://localhost:3001'];
 
 app.use(cors({
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-
-        // Check if origin is allowed or if we are in development/demo mode (allow all)
-        // For strict security, you should only allow specific origins in production
-        if (process.env.NODE_ENV === 'production' && process.env.STRICT_CORS === 'true') {
-            if (allowedOrigins.indexOf(origin) !== -1) {
-                callback(null, true);
-            } else {
-                callback(new Error('Not allowed by CORS'));
-            }
-        } else {
-            callback(null, true); // Allow all origins by default for easier deployment
-        }
-    },
+    origin: true, // Allow all origins
     credentials: true
 }));
 
