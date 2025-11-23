@@ -1,5 +1,9 @@
 // API Configuration
-const API_BASE_URL = 'https://skillwisedemo.com/';
+// API Configuration
+const IS_LOCALHOST = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_BASE_URL = IS_LOCALHOST
+    ? 'http://localhost:3001/api'
+    : 'https://skillwisedemo.com/api';
 
 // Global state
 let products = [];
@@ -16,17 +20,17 @@ const showNotification = (message, type = 'success') => {
     const notification = document.getElementById('notification');
     const notificationIcon = document.getElementById('notificationIcon');
     const notificationMessage = document.getElementById('notificationMessage');
-    
+
     // Set icon based on type
     if (type === 'success') {
         notificationIcon.innerHTML = '<svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>';
     } else if (type === 'error') {
         notificationIcon.innerHTML = '<svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>';
     }
-    
+
     notificationMessage.textContent = message;
     notification.classList.add('show');
-    
+
     setTimeout(() => {
         notification.classList.remove('show');
     }, 3000);
@@ -58,13 +62,13 @@ const apiCall = async (endpoint, options = {}) => {
             },
             ...options
         });
-        
+
         const data = await response.json();
-        
+
         if (!response.ok) {
             throw new Error(data.message || 'API request failed');
         }
-        
+
         return data;
     } catch (error) {
         console.error('API call error:', error);
@@ -77,11 +81,11 @@ const fetchProducts = async (params = {}) => {
     const filteredParams = Object.fromEntries(
         Object.entries(params).filter(([_, value]) => value !== '' && value !== null && value !== undefined)
     );
-    
+
     // Add sorting parameters
     filteredParams.sort = sortField;
     filteredParams.order = sortOrder;
-    
+
     const queryString = new URLSearchParams(filteredParams).toString();
     return apiCall(`/products?${queryString}`);
 };
@@ -91,7 +95,7 @@ const fetchStats = async (filters = {}) => {
     const queryParams = {};
     if (filters.category) queryParams.category = filters.category;
     if (filters.status) queryParams.status = filters.status;
-    
+
     const queryString = new URLSearchParams(queryParams).toString();
     const endpoint = queryString ? `/history/summary?${queryString}` : '/history/summary';
     return apiCall(endpoint);
@@ -132,27 +136,27 @@ const exportProducts = async () => {
 const importProducts = async (file) => {
     const formData = new FormData();
     formData.append('csvFile', file);
-    
+
     const response = await fetch(`${API_BASE_URL}/import/products`, {
         method: 'POST',
         body: formData
     });
-    
+
     if (!response.ok) {
         throw new Error('Import failed');
     }
-    
+
     return response.json();
 };
 
 // UI Rendering Functions
 const renderStatsCards = (stats, filters = {}) => {
     const statsContainer = document.getElementById('statsCards');
-    
+
     // Determine if filters are active
     const hasFilters = filters.category || filters.status;
     const filterLabel = hasFilters ? ' (Filtered)' : '';
-    
+
     const cards = [
         {
             title: 'Total Products' + filterLabel,
@@ -205,8 +209,8 @@ const renderStatsCards = (stats, filters = {}) => {
             color: 'bg-red-50 text-red-700'
         }
     ];
-    
-    
+
+
     statsContainer.innerHTML = cards.map(card => `
        <div class="rounded-xl glass-panel p-6 border border-white/10 bg-slate-900/40 
             transition-all duration-300 hover:border-indigo-500/40 hover:shadow-xl">
@@ -228,20 +232,20 @@ const renderProductsTable = (products) => {
     const tbody = document.getElementById('productsTableBody');
     const loadingState = document.getElementById('loadingState');
     const emptyState = document.getElementById('emptyState');
-    
+
     if (products.length === 0) {
         loadingState.classList.add('hidden');
         emptyState.classList.remove('hidden');
         tbody.innerHTML = '';
         return;
     }
-    
+
     loadingState.classList.add('hidden');
     emptyState.classList.add('hidden');
-    
+
     tbody.innerHTML = products.map(product => {
         const stockStatus = getStockStatus(product.stock);
-        
+
         return `
             <tr class="table-row" data-product-id="${product.id}">
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -293,14 +297,14 @@ const renderProductsTable = (products) => {
 
 const renderPagination = (pagination) => {
     const paginationContainer = document.getElementById('pagination');
-    
+
     if (!pagination || pagination.pages <= 1) {
         paginationContainer.innerHTML = '';
         return;
     }
-    
+
     const { page, pages, total } = pagination;
-    
+
     paginationContainer.innerHTML = `
         <div class="flex items-center justify-between w-full">
             <div class="text-sm text-slate-700">
@@ -332,9 +336,9 @@ const renderPagination = (pagination) => {
 const renderHistory = (historyData) => {
     const historyContent = document.getElementById('historyContent');
     const historyProductName = document.getElementById('historyProductName');
-    
+
     historyProductName.textContent = `Product: ${historyData.product.name}`;
-    
+
     if (historyData.history.length === 0) {
         historyContent.innerHTML = `
             <div class="text-center py-8">
@@ -348,7 +352,7 @@ const renderHistory = (historyData) => {
         `;
         return;
     }
-    
+
     historyContent.innerHTML = `
         <div class="space-y-4">
             ${historyData.history.map(entry => `
@@ -378,37 +382,37 @@ const renderHistory = (historyData) => {
 // Event Handlers
 const loadProducts = async (params = {}) => {
     if (isLoading) return;
-    
+
     isLoading = true;
     const loadingState = document.getElementById('loadingState');
     loadingState.classList.remove('hidden');
-    
+
     try {
         const response = await fetchProducts({
             page: currentPage,
             limit: itemsPerPage,
             ...params
         });
-        
+
         products = response.data;
         filteredProducts = products;
-        
+
         renderProductsTable(products);
         renderPagination(response.pagination);
-        
+
         // Update sort indicators
         updateSortIndicators();
-        
+
         // Update category filter options
         await updateCategoryFilter();
-        
+
         // Update stats with current filters
         const currentFilters = {
             category: params.category || document.getElementById('categoryFilter')?.value || '',
             status: params.status || document.getElementById('statusFilter')?.value || ''
         };
         loadStats(currentFilters);
-        
+
     } catch (error) {
         console.error('Error loading products:', error);
         showNotification('Failed to load products', 'error');
@@ -425,7 +429,7 @@ const loadStats = async (filters = {}) => {
             category: document.getElementById('categoryFilter')?.value || '',
             status: document.getElementById('statusFilter')?.value || ''
         };
-        
+
         const stats = await fetchStats(currentFilters);
         renderStatsCards(stats.data, currentFilters);
     } catch (error) {
@@ -438,7 +442,7 @@ const updateCategoryFilter = async () => {
     try {
         const response = await apiCall('/products/categories/all');
         const categories = response.data;
-        
+
         categoryFilter.innerHTML = '<option value="">All Categories</option>' +
             categories.map(category => `<option value="${category}">${category}</option>`).join('');
     } catch (error) {
@@ -450,21 +454,21 @@ const searchProducts = () => {
     const searchTerm = document.getElementById('searchInput').value;
     const category = document.getElementById('categoryFilter').value;
     const status = document.getElementById('statusFilter').value;
-    
+
     currentPage = 1;
     const filters = {
         name: searchTerm,
         category,
         status
     };
-    
+
     loadProducts(filters);
     // Stats will be updated automatically in loadProducts
 };
 
 const changePage = (page) => {
     if (page < 1) return;
-    
+
     currentPage = page;
     loadProducts();
 };
@@ -478,13 +482,13 @@ window.handleSort = (field) => {
         sortField = field;
         sortOrder = 'asc';
     }
-    
+
     // Reset to first page when sorting changes
     currentPage = 1;
-    
+
     // Update sort indicators
     updateSortIndicators();
-    
+
     // Reload products with new sort
     loadProducts();
 };
@@ -495,7 +499,7 @@ const updateSortIndicators = () => {
     indicators.forEach(indicator => {
         indicator.classList.remove('active', 'asc', 'desc');
     });
-    
+
     // Add active class and direction to current sort field
     const activeIndicator = document.getElementById(`sort-${sortField}`);
     if (activeIndicator) {
@@ -510,14 +514,14 @@ const updateStock = async (productId, newStock) => {
             showNotification('Stock cannot be negative', 'error');
             return;
         }
-        
+
         await updateProduct(productId, { stock });
         showNotification('Stock updated successfully');
-        
+
         // Reload products and stats
         loadProducts();
         loadStats();
-        
+
     } catch (error) {
         console.error('Error updating stock:', error);
         const errorMessage = error.message || 'Failed to update stock';
@@ -529,10 +533,10 @@ const viewHistory = async (productId) => {
     try {
         const historyData = await fetchHistory(productId);
         renderHistory(historyData.data);
-        
+
         const sidebar = document.getElementById('historySidebar');
         sidebar.classList.add('open');
-        
+
     } catch (error) {
         console.error('Error loading history:', error);
         showNotification('Failed to load history', 'error');
@@ -543,15 +547,15 @@ const deleteProductConfirm = async (productId) => {
     if (!confirm('Are you sure you want to delete this product?')) {
         return;
     }
-    
+
     try {
         await deleteProduct(productId);
         showNotification('Product deleted successfully');
-        
+
         // Reload products and stats
         loadProducts();
         loadStats();
-        
+
     } catch (error) {
         console.error('Error deleting product:', error);
         const errorMessage = error.message || 'Failed to delete product';
@@ -562,7 +566,7 @@ const deleteProductConfirm = async (productId) => {
 const openAddProductModal = () => {
     const modal = document.getElementById('addProductModal');
     modal.classList.add('show');
-    
+
     // Reset form
     document.getElementById('addProductForm').reset();
 };
@@ -574,7 +578,7 @@ const closeAddProductModal = () => {
 
 const handleAddProduct = async (event) => {
     event.preventDefault();
-    
+
     const formData = new FormData(event.target);
     const productData = {
         name: document.getElementById('productName').value,
@@ -584,17 +588,17 @@ const handleAddProduct = async (event) => {
         stock: parseInt(document.getElementById('productStock').value),
         image: document.getElementById('productImage').value || null
     };
-    
+
     try {
         await addProduct(productData);
         showNotification('Product added successfully');
-        
+
         closeAddProductModal();
-        
+
         // Reload products and stats
         loadProducts();
         loadStats();
-        
+
     } catch (error) {
         console.error('Error adding product:', error);
         // Show the actual error message from the API
@@ -614,9 +618,9 @@ const handleExport = async () => {
         a.click();
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
-        
+
         showNotification('Products exported successfully');
-        
+
     } catch (error) {
         console.error('Error exporting products:', error);
         showNotification('Failed to export products', 'error');
@@ -630,32 +634,32 @@ const handleImport = () => {
 const handleFileSelect = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
-    
+
     if (!file.name.endsWith('.csv')) {
         showNotification('Please select a CSV file', 'error');
         return;
     }
-    
+
     try {
         const result = await importProducts(file);
-        
+
         if (result.success) {
             showNotification(`${result.data.added} products imported successfully`);
-            
+
             // Reload products and stats
             loadProducts();
             loadStats();
         }
-        
+
         if (result.data.errors && result.data.errors.length > 0) {
             showNotification(`${result.data.skipped} products were skipped due to errors`, 'error');
         }
-        
+
     } catch (error) {
         console.error('Error importing products:', error);
         showNotification('Failed to import products', 'error');
     }
-    
+
     // Reset file input
     event.target.value = '';
 };
@@ -672,20 +676,20 @@ const initializeDashboard = () => {
         document.getElementById('statusFilter').value = '';
         searchProducts();
     });
-    
+
     document.getElementById('addProductBtn').addEventListener('click', openAddProductModal);
     document.getElementById('closeModal').addEventListener('click', closeAddProductModal);
     document.getElementById('cancelAdd').addEventListener('click', closeAddProductModal);
     document.getElementById('addProductForm').addEventListener('submit', handleAddProduct);
-    
+
     document.getElementById('exportBtn').addEventListener('click', handleExport);
     document.getElementById('importBtn').addEventListener('click', handleImport);
     document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-    
+
     document.getElementById('closeSidebar').addEventListener('click', () => {
         document.getElementById('historySidebar').classList.remove('open');
     });
-    
+
     // Close sidebar when clicking outside
     document.addEventListener('click', (event) => {
         const sidebar = document.getElementById('historySidebar');
@@ -693,10 +697,10 @@ const initializeDashboard = () => {
             sidebar.classList.remove('open');
         }
     });
-    
+
     // Initialize animations
     initializeAnimations();
-    
+
     // Load initial data
     loadProducts();
     loadStats();
@@ -731,7 +735,7 @@ const initializeAnimations = () => {
             });
         }
     }
-    
+
     // Animate stats cards
     setTimeout(() => {
         const cards = document.querySelectorAll('.fade-in');
