@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'https://skillwisedemo.com/';
+const API_BASE_URL = 'https://skillwisedemo.com';
 
 // Global state
 let products = [];
